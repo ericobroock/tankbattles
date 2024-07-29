@@ -1,9 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://cmro7d34tlyxo"]
+[gd_scene load_steps=3 format=3 uid="uid://cmro7d34tlyxo"]
 
-[ext_resource type="Texture2D" uid="uid://cdhj33umpswl3" path="res://icon.svg" id="1_3ejxm"]
+[ext_resource type="Script" path="res://tank.gd" id="1_o4v76"]
 
-[node name="Tank" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ktfhr"]
 
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(192, 133)
-texture = ExtResource("1_3ejxm")
+[node name="Tank" type="CharacterBody2D"]
+script = ExtResource("1_o4v76")
+
+[node name="Body" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ktfhr")
+
+[node name="Turret" type="Sprite2D" parent="."]
+
+[node name="GunTimer" type="Timer" parent="."]
